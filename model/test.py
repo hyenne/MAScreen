@@ -24,9 +24,10 @@ was_pressed = False
 
 last = int(round(time.time() * 1000))
 interval = 120
+lastData = -1
 
 port = serial.Serial(
-    port='COM5',
+    port='COM3',
     baudrate=9600,
 )
 def getY(val):
@@ -34,12 +35,14 @@ def getY(val):
     return int(result)
 
 def sendData(num):
-    global last, interval, ledTable, client
+    global last, interval, ledTable, client, lastData
     now = int(round(time.time() * 1000))
     if now - last > interval:
         print(result)
-        client.draw(ledTable[num])
-        last = now
+        if lastData == -1 or num != lastData:
+            client.draw(ledTable[num])
+            last = now
+            lastData = num
 
 while True:
     if port.readable():

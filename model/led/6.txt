@@ -1,9 +1,9 @@
+               -XX-
+              -XXXX-
+              XXXXXX
+              -XXXX-
+               -XX-
 
 
-
-
-
-
-XXXXXXXXXXXXXXXXXXXXXXXX
 
 

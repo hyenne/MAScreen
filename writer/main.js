@@ -4,13 +4,10 @@ const zerorpc = require("zerorpc");
 var peripheralUUID = 'd16c118703cc'; //'ce7ad00da0ac4463983bd328cb3edeff'; 맥북에서는 이거였음
 var characteristicUUID = '6e400002b5a3f393e0a9e50e24dcca9e';
 var writer = null;
-var lastdata = null;
 
 var server = new zerorpc.Server({
   draw: function(data, reply) {
-      if (data == null || data != lastdata) {
-        draw(data);
-      }
+      draw(data);
       reply(null, "sent");
   }
 });
