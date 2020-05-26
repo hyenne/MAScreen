@@ -18,7 +18,7 @@ output=[0,0,0,0,0,0,0,0,0]
 vals = [0,0,0,0,0,0,0,0,0]
 init = [0,0,0,0,0,0,0,0,0]
 flags = [0xff, 0xfe, 0xfd, 0xfc, 0xfb, 0xfa, 0xef, 0xee, 0xed]
-svc = joblib.load("./checkpoints/model.pkl")
+svc = joblib.load("./checkpoints/model_new.pkl")
 size=100
 was_pressed = False
 

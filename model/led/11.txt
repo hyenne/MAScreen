@@ -1,7 +1,7 @@
-          XX
-           XXx
-             XXXXXXXX
-              XXXXXX-
+     XX
+      XXx
+        XXXXXXXX
+         XXXXXX-
 
 
 

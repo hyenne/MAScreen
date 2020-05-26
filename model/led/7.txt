@@ -1,8 +1,8 @@
 
-              -XXXX-
-              xXXXXx
-             -xXXXXx-
-               xxxx
+         -XXXX-
+         X    X
+        -X    X-
+          xxxx
 
 
 

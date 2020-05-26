@@ -1,9 +1,9 @@
 
-              XXXXXX
-             xXXXXXXx
-             xXXXXXXx
-              XXXXXX
-               XXXX
+         XXXXXX
+        xX    Xx
+        xX    Xx
+         Xx  xX
+          xXXx
 
 
 
