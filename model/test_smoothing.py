@@ -6,6 +6,9 @@ import util
 import zerorpc
 import time
 
+smoothing = 5
+interval = 120
+
 client = zerorpc.Client()
 client.connect("tcp://127.0.0.1:4242")
 
@@ -14,7 +17,6 @@ for i in range(12):
     ledTable[i] = util.fileToLEDString("./led/{}.txt".format(i))
 
 numVals = range(0,9)
-output = [0,0,0,0,0,0,0,0,0]
 vals = [0,0,0,0,0,0,0,0,0]
 init = [0,0,0,0,0,0,0,0,0]
 flags = [0xff, 0xfe, 0xfd, 0xfc, 0xfb, 0xfa, 0xef, 0xee, 0xed]
@@ -22,8 +24,11 @@ svc = joblib.load("./checkpoints/model_new.pkl")
 size=100
 was_pressed = False
 
+# smoothing function
+smoothingIndex = 0
+smoothingArray = [[0,0,0,0,0,0,0,0,0] for _ in range(smoothing)]
+
 last = int(round(time.time() * 1000))
-interval = 120
 lastData = -1
 
 port = serial.Serial(
@@ -51,7 +56,8 @@ while True:
             if val==flags[i]:
                 value=(ord(port.read())<< 8) | (ord(port.read()))
                 vals[i] = value
-                output[i]=getY(vals[i])-init[i]
+                smoothingArray[smoothingIndex][i]=getY(vals[i])-init[i]
+                smoothingIndex = (smoothingIndex + 1) % smoothing
      
     if keyboard.is_pressed(' '):
         if not was_pressed:
@@ -61,6 +67,7 @@ while True:
     else:
         was_pressed = False
 
+    output = [sum(i)/smoothing for i in zip(*smoothingArray)]
     push=[output]
     preds = svc.predict(push) 
     result=int(preds[0])
