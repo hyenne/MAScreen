@@ -10,11 +10,11 @@ from sklearn.metrics import classification_report
 def get_args():
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('--parse_data', type=bool, default=False)
-    parser.add_argument('--data_size', type=int, default=15000)
+    parser.add_argument('--data_size', type=int, default=10000)
     parser.add_argument('--testing_ratio', type=float, default=0.1)
-    parser.add_argument('--num_labels', type=int, default=12)
+    parser.add_argument('--num_labels', type=int, default=11)
     parser.add_argument('--train', type=bool, default=False)
-    parser.add_argument('--checkpoint', type=str, default='model_new.pkl')
+    parser.add_argument('--checkpoint', type=str, default='model_emotion.pkl')
     args = parser.parse_args()
     return args
 

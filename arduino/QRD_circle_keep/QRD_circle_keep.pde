@@ -39,7 +39,7 @@ void drawValues() {
     }
     println(table.getRowCount());
     if (table.getRowCount() == 500) {
-      saveTable(table, "data/" + str(reportingNum) + "count2"+str(count)+".csv");
+      saveTable(table, "data/" + str(reportingNum) + "count3"+str(count)+".csv");
       println("done");
       count++;
       reporting=false;

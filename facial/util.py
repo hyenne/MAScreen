@@ -16,7 +16,7 @@ def parseData(args):
     plain_data = []
     for i in range(args.num_labels):
         data_per_label = []
-        for fp in glob.glob("./data/{}count*.csv".format(i)):
+        for fp in glob.glob("./data/{}count*.csv".format(i+1)):
             with open(fp) as f: # with open(./0count46.csv) as f: => with open(./0count51.csv) as f: => ...
                 next(f) # skip first line
                 data_per_label += list(csv.reader(f)) #[1, 23] + [3, 4] = [1, 23, 3, 4] # [1, 23].append([3, 4]) = [[1, 23], [3, 4]]
