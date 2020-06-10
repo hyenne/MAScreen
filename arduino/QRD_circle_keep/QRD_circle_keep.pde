@@ -49,7 +49,7 @@ void drawValues() {
 
 void setup() {
   size(800, 600);
-  port = new Serial(this, "COM5", 9600);
+  port = new Serial(this, "COM3", 9600);
   smooth();
 }
 

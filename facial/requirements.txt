@@ -1,0 +1,7 @@
+joblib==0.15.1
+numpy==1.18.4
+scikit-learn==0.23.0
+scipy==1.4.1
+threadpoolctl==2.0.0
+zerorpc==0.6.3
+keyboard==0.13.5

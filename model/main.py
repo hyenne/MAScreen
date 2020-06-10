@@ -14,7 +14,7 @@ def get_args():
     parser.add_argument('--testing_ratio', type=float, default=0.1)
     parser.add_argument('--num_labels', type=int, default=12)
     parser.add_argument('--train', type=bool, default=False)
-    parser.add_argument('--checkpoint', type=str, default='model_new.pkl')
+    parser.add_argument('--checkpoint', type=str, default='model_new2.pkl')
     args = parser.parse_args()
     return args
 

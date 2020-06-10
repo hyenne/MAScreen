@@ -5,6 +5,10 @@ import keyboard
 import util
 import zerorpc
 import time
+import logging
+import sys
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s.%(msecs)03d %(message)s', datefmt='%Y-%m-%d %H:%M:%S', filename="./logs.txt")
 
 client = zerorpc.Client()
 client.connect("tcp://127.0.0.1:4242")
@@ -37,9 +41,11 @@ def getY(val):
 def sendData(num):
     global last, interval, ledTable, client, lastData
     now = int(round(time.time() * 1000))
+    logging.info("PREDICT: {}".format(num))
+    # print("PREDICT: {}".format(num))
     if now - last > interval:
-        print(result)
         if lastData == -1 or num != lastData:
+            logging.info("SEND: {}".format(num))
             client.draw(ledTable[num])
             last = now
             lastData = num
@@ -62,6 +68,7 @@ while True:
         was_pressed = False
 
     push=[output]
-    preds = svc.predict(push) 
+    preds = svc.predict(push)   
     result=int(preds[0])
+    # print("PREDICT: {}".format(result))
     sendData(result)
