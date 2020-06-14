@@ -22,7 +22,7 @@ output = [0,0,0,0,0,0,0,0,0]
 vals = [0,0,0,0,0,0,0,0,0]
 init = [0,0,0,0,0,0,0,0,0]
 flags = [0xff, 0xfe, 0xfd, 0xfc, 0xfb, 0xfa, 0xef, 0xee, 0xed]
-svc = joblib.load("./checkpoints/model_new.pkl")
+svc = joblib.load("./checkpoints/model_final.pkl")
 size=100
 was_pressed = False
 
@@ -32,7 +32,7 @@ lastData = -1
 
 port = serial.Serial(
     port='COM3',
-    baudrate=9600,
+    baudrate=19200,
 )
 def getY(val):
     result = val/1023.0*100

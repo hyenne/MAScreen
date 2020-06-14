@@ -32,7 +32,7 @@ lastData = -1
 
 port = serial.Serial(
     port='COM3',
-    baudrate=9600,
+    baudrate=19200,
 )
 def getY(val):
     result = val/1023.0*100
