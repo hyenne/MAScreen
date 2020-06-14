@@ -7,7 +7,7 @@ import zerorpc
 import time
 
 smoothing = 5
-interval = 120
+interval = 60
 
 client = zerorpc.Client()
 client.connect("tcp://127.0.0.1:4242")

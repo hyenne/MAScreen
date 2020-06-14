@@ -30,7 +30,7 @@ void setup() {
 
   // initialize serial:
 
-  Serial.begin(9600);
+  Serial.begin(12800);
   if (! matrix.begin()) {
     //Serial.println("IS31 not found");
     while (1);
