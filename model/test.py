@@ -14,8 +14,9 @@ client = zerorpc.Client()
 client.connect("tcp://127.0.0.1:4242")
 
 ledTable = {}
-for i in range(12):
-    ledTable[i] = util.fileToLEDString("./led/{}.txt".format(i))
+# for i in range(12):
+#     ledTable[i] = util.fileToLEDString("./led/{}.txt".format(i))
+ledTable[0] = util.fileToLEDString("C:/Works/MaskModel/model/led/0.txt")
 
 numVals = range(0,9)
 output = [0,0,0,0,0,0,0,0,0]

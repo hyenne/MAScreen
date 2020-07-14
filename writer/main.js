@@ -1,9 +1,16 @@
-const noble = require('noble');
+const noble = require("noble");
 const zerorpc = require("zerorpc");
 
-var peripheralUUID = 'd16c118703cc'; //'ce7ad00da0ac4463983bd328cb3edeff'; 맥북에서는 이거였음
-var characteristicUUID = '6e400002b5a3f393e0a9e50e24dcca9e';
+var peripheralUUID = 'cd2e28cd924b'; //'d16c118703cc'; //'ce7ad00da0ac4463983bd328cb3edeff'; 맥북에서는 이거였음
+var characteristicUUID = '6e400002b5a3f393e0a9e50e24dcca9e'; //'0000000000000000ffffffffffffffff'
 var writer = null;
+
+// List<BluetoothGattCharacteristic> characteristics = service.getCharacteristics();
+
+//          for (BluetoothGattCharacteristic characteristic : characteristics) {
+//             // here you have your characteristic's UUID
+//             String characteristicUuid = characteristic.getUuid().toString();
+//          }
 
 var server = new zerorpc.Server({
   draw: function(data, reply) {
@@ -32,6 +39,12 @@ function strToByte(str) {
 
 function draw(data) {
   strToByte(data).forEach(b => {
+    writer.write(b, false, err => {});
+  })
+}
+
+function drawSpeech(data) {
+  data.forEach(b => {
     writer.write(b, false, err => {});
   })
 }
