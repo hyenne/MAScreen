@@ -39,7 +39,7 @@ void drawValues() {
     }
     println(table.getRowCount());
     if (table.getRowCount() == 500) {
-      saveTable(table, "data/" + str(reportingNum) + "count4"+str(count)+".csv");
+      saveTable(table, "data/" + str(reportingNum) + "count3"+str(count)+".csv");
       println("done");
       count++;
       reporting=false;
@@ -49,7 +49,7 @@ void drawValues() {
 
 void setup() {
   size(800, 600);
-  port = new Serial(this, "COM3", 19200);
+  port = new Serial(this, "COM3", 9600);
   smooth();
 }
 

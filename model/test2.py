@@ -8,7 +8,7 @@ import time
 import logging
 import sys
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s.%(msecs)03d %(message)s', datefmt='%Y-%m-%d %H:%M:%S', filename="./logs2_9600.txt")
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s.%(msecs)03d %(message)s', datefmt='%Y-%m-%d %H:%M:%S', filename="./logs2.txt")
 
 # ledTable = {}
 # for i in range(12):
@@ -29,7 +29,7 @@ lastData = -1
 
 port = serial.Serial(
     port='COM3',
-    baudrate=9600,
+    baudrate=19200,
 )
 def getY(val):
     result = val/1023.0*100
@@ -43,11 +43,6 @@ while True:
                 value=(ord(port.read())<< 8) | (ord(port.read()))
                 vals[i] = value
                 output[i]=getY(vals[i])-init[i]
-        push=[output]
-        preds = svc.predict(push) 
-        result=int(preds[0])
-        logging.info("PREDICT: {}".format(result))
-        # print("PREDICT: {}".format(result))
      
     if keyboard.is_pressed(' '):
         if not was_pressed:
@@ -57,8 +52,8 @@ while True:
     else:
         was_pressed = False
 
-    # push=[output]
-    # preds = svc.predict(push) 
-    # result=int(preds[0])
-    # logging.info("PREDICT: {}".format(result))
+    push=[output]
+    preds = svc.predict(push) 
+    result=int(preds[0])
+    logging.info("PREDICT: {}".format(result))
     # print("PREDICT: {}".format(result))
