@@ -72,8 +72,8 @@ while True:
     else:
         was_pressed = False
 
-    push=[output]
-    preds = svc.predict(push)   
-    result=int(preds[0])
-    print("PREDICT: {}".format(result))
-    sendData(result)
+    # push=[output]
+    # preds = svc.predict(push)   
+    # result=int(preds[0])
+    # print("PREDICT: {}".format(result))
+    # sendData(result)
