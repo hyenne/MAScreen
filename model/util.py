@@ -48,10 +48,10 @@ def loadData(args):
     test_x = []
     test_y = []
     for i in range(args.num_labels): # 0, 1, 2, ..., 11
-        with open("./parsed_data/train/label-{}_size-{}.csv".format(i, train_size)) as f:
+        with open("./parsed_data/model_final/train/label-{}_size-{}.csv".format(i, train_size)) as f:
             train_x += list(csv.reader(f))
             train_y += [i for _ in range(train_size)]
-        with open("./parsed_data/test/label-{}_size-{}.csv".format(i, test_size)) as f:
+        with open("./parsed_data/model_final/test/label-{}_size-{}.csv".format(i, test_size)) as f:
             test_x += list(csv.reader(f))
             test_y += [i for _ in range(test_size)]
     train_x = np.array(train_x) # list 자료형을 numpy 자료형으로 바꿔주는거

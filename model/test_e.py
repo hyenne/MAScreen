@@ -31,7 +31,7 @@ interval = 120
 lastData = -1
 
 port = serial.Serial(
-    port='COM3',
+    port='COM3', 
     baudrate=19200,
 )
 def getY(val):
@@ -58,7 +58,12 @@ while True:
                 value=(ord(port.read())<< 8) | (ord(port.read()))
                 vals[i] = value
                 output[i]=getY(vals[i])-init[i]
-     
+        push=[output]
+        preds = svc.predict(push)   
+        result=int(preds[0])
+        print (result)
+        # print("PREDICT: {}".format(result))
+        sendData(result)
     if keyboard.is_pressed(' '):
         if not was_pressed:
             for i in numVals:
@@ -67,9 +72,4 @@ while True:
     else:
         was_pressed = False
 
-    push=[output]
-    preds = svc.predict(push)   
-    result=int(preds[0])
-    print (result)
-    # print("PREDICT: {}".format(result))
-    sendData(result)
+
