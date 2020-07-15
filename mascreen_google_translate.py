@@ -1,4 +1,6 @@
 from google.cloud import translate
+import sys
+import time
 
 def translate_text(text="YOUR_TEXT_TO_TRANSLATE", project_id="YOUR_PROJECT_ID"):
     """Translating Text."""
@@ -23,17 +25,19 @@ def translate_text(text="YOUR_TEXT_TO_TRANSLATE", project_id="YOUR_PROJECT_ID"):
         translate_result += translation.translated_text
     return translated_result
 
-
 def main():
-    f= open("./stt_reader/result/stt.txt","r")
-    temp = text
-    text = f.read()
-    if temp == text:
-        time.sleep(1)
-        print ('Nothing New')
-    else:
-        transcript = translate_text(text, "mascreen")
-        f= open("./stt/result/translated.txt","w")
-        f.write(transcript)
-        f.close()
-        
+    text=''
+    while True:
+        f= open("./stt/result/stt.txt","r")
+        temp = text
+        text = f.read()
+        if temp == text:
+            time.sleep(1)
+            print ('Nothing New')
+        else:
+            transcript = translate_text(text, "mascreen")
+            f= open("./stt/result/translated.txt","w")
+            f.write(transcript)
+            f.close()
+
+main()
