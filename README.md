@@ -24,7 +24,7 @@
 4. 구글 클라우드 Speech to Text
 1) anaconda에서 실행한 vscode shell 켜기
 
-2) $env:GOOGLE_APPLICATION_CREDENTIALS="C:\Git\Mascreen\Mascreen-20e4b6ef0912.json"
+2) $env:GOOGLE_APPLICATION_CREDENTIALS="C:\Works\MAScreen\Mascreen-cc2b626241d8.json"
 
 3) python mascreen_google_speechToText.py
 
