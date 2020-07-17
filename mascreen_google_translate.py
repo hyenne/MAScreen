@@ -1,29 +1,27 @@
-from google.cloud import translate
+from google.cloud import translate_v2 as translate
 import sys
 import time
 
-def translate_text(text="YOUR_TEXT_TO_TRANSLATE", project_id="YOUR_PROJECT_ID"):
-    """Translating Text."""
-    translated_result = ''
+# def translate_text(input):
+#     client = translate.Client()
+#     result = client.translate(input, target_language='ja')
+#     print(result['translatedText'])
+#     return result
 
-    client = translate.TranslationServiceClient()
+def translate_text(_input_text, _target_language):
+    translate_client = translate.Client()
 
-    parent = client.location_path(project_id, "global")
+    # if isinstance(text, six.binary_type):
+    #     text = text.decode('utf-8')
 
-    # Detail on supported types can be found here:
-    # https://cloud.google.com/translate/docs/supported-formats
-    response = client.translate_text(
-        parent=parent,
-        contents=[text],
-        mime_type="text/plain",  # mime types: text/plain, text/html
-        source_language_code="en-US",
-        target_language_code="fr",
-    )
-    # Display the translation for each input text provided
-    for translation in response.translations:
-        print(u"Translated text: {}".format(translation.translated_text))
-        translate_result += translation.translated_text
-    return translated_result
+    # Text can also be a sequence of strings, in which case this method
+    # will return a sequence of results for each text.
+    result = translate_client.translate(_input_text, target_language=_target_language)
+
+    # print(u'Text: {}'.format(result['input']))
+    # print(u'Translation: {}'.format(result['translatedText']))
+    # print(u'Detected source language: {}'.format(result['detectedSourceLanguage']))
+    return result['translatedText']
 
 def main():
     text=''
@@ -35,7 +33,7 @@ def main():
             time.sleep(1)
             print ('Nothing New')
         else:
-            transcript = translate_text(text, "mascreen")
+            transcript = translate_text(text, "ja")
             f= open("./stt/result/translated.txt","w")
             f.write(transcript)
             f.close()
