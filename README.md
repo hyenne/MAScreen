@@ -24,7 +24,7 @@
 4. 구글 클라우드 Speech to Text
 1) anaconda에서 실행한 vscode shell 켜기
 
-2) $env:GOOGLE_APPLICATION_CREDENTIALS="C:\Git\Mascreen\Mascreen-20e4b6ef0912.json"
+2) $env:GOOGLE_APPLICATION_CREDENTIALS="C:\Works\Mascreen\mascreen-967da9d741be.json"
 
 3) python mascreen_google_speechToText.py
 
@@ -44,6 +44,6 @@ C:\Works\Mascreen\translater
 https://jungwoon.github.io/google%20cloud/2018/01/03/Translation-Api/
 
 ## Google Cloud
-export GOOGLE_CLOUD_SDK_PATH=/Users/jungwoon/google-cloud-sdk
+export GOOGLE_CLOUD_SDK_PATH=C:\Works\google-cloud-sdk
 export PATH=$PATH:$GOOGLE_CLOUD_SDK_PATH/bin
-export GOOGLE_APPLICATION_CREDENTIALS=D:\Works\Git\MAScreen\mascreen-967da9d741be.json
+export GOOGLE_APPLICATION_CREDENTIALS=C:\Works\google-cloud-sdk

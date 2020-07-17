@@ -8,6 +8,7 @@ from functools import reduce
 
 import time
 import os
+import sys
 
 client = zerorpc.Client()
 client.connect("tcp://127.0.0.1:4242")
@@ -20,16 +21,18 @@ text = ''
 def main():
     text=''
     while True:
-        filepath = sys.argv[0]
-        # f= open("./result/stt.txt","r")
-        f = open(filepath, "r")
+        # filepath = sys.argv[0]
+        f_stt= open("./result/stt.txt","r")
+        f_trans= open("./result/translated.txt","r", -1, "utf-8")
+        # f = open(filepath, "r")
         temp = text
-        text = f.read()
+        text = f_stt.read()
+        text_trans = f_trans.read()
         if temp == text:
             time.sleep(1)
             print ('Nothing New')
         else:
-            queue(text)
+            queue(text_trans)
             for i in range(len(brokenWords)):
                 data = renderText.renderText(brokenWords[i])
                 ledTable = frame(data)
@@ -37,7 +40,8 @@ def main():
                 sendData(ledTable)
                 time.sleep(1)
             brokenWords.clear()
-        f.close()
+        f_stt.close()
+        f_trans.close()
 
 def queue(word):
     brokenWords.append(word[0:3])

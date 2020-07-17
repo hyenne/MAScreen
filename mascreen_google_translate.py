@@ -26,16 +26,18 @@ def translate_text(_input_text, _target_language):
 def main():
     text=''
     while True:
-        f= open("./stt/result/stt.txt","r")
+        f_stt= open("./stt/result/stt.txt","r")
         temp = text
-        text = f.read()
+        text = f_stt.read()
+        f_stt.close()
         if temp == text:
             time.sleep(1)
             print ('Nothing New')
         else:
-            transcript = translate_text(text, "ja")
-            f= open("./stt/result/translated.txt","w")
-            f.write(transcript)
-            f.close()
+            transcript = translate_text(text, "ko")
+            f_trans= open("./stt/result/translated.txt","w", -1, "utf-8")
+            # f_trans= open("./stt/result/translated.txt","w")
+            f_trans.write(transcript)
+            f_trans.close()
 
 main()

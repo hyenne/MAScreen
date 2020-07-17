@@ -8,11 +8,11 @@ var = Scope( JS_BUILTINS )
 set_global_object(var)
 
 # Code follows:
-var.registers(['renderText', 'width', 'data', 'Char8', 'pos'])
+var.registers(['width', 'data', 'Char8', 'pos', 'renderText'])
 @Js
 def PyJsHoisted_renderText_(source, this, arguments, var=var):
     var = Scope({'source':source, 'this':this, 'arguments':arguments}, var)
-    var.registers(['l', 'canvas', 'chars', 'glyph', 'source'])
+    var.registers(['glyph', 'canvas', 'source', 'chars', 'l'])
     var.put('chars', var.get('Char8').callprop('transform', var.get('source')))
     var.put('width', var.get('Math').callprop('max', Js(24.0), ((var.get('chars').get('length')+Js(1.0))*Js(8.0))))
     var.put('canvas', var.get('Uint8Array').create((var.get('width')*Js(8.0))))
@@ -62,7 +62,7 @@ pass
 @Js
 def PyJs_anonymous_0_(this, arguments, var=var):
     var = Scope({'this':this, 'arguments':arguments}, var)
-    var.registers(['transform', 'unescapeHTML', 'cp437toU', 'define', 'getCode', 'getExtASCIICode', 'petGlyphs', 'isMulti', 'map', 'synonyms', 'entities', 'substitutes', 'getSymbol', 'getGlyph', 'multiLetter', 'getMulti', 'getPETCode', 'unmap', 'getPETSymbol', 'customs', 'rotate', 'symbols', 'getExtASCIISymbol'])
+    var.registers(['entities', 'define', 'synonyms', 'unmap', 'rotate', 'cp437toU', 'map', 'getPETCode', 'isMulti', 'multiLetter', 'getExtASCIICode', 'getGlyph', 'symbols', 'substitutes', 'getSymbol', 'petGlyphs', 'getExtASCIISymbol', 'getCode', 'getPETSymbol', 'transform', 'unescapeHTML', 'getMulti', 'customs'])
     @Js
     def PyJsHoisted_getCode_(c, this, arguments, var=var):
         var = Scope({'c':c, 'this':this, 'arguments':arguments}, var)
@@ -154,7 +154,7 @@ def PyJs_anonymous_0_(this, arguments, var=var):
     @Js
     def PyJsHoisted_define_(deflist, this, arguments, var=var):
         var = Scope({'deflist':deflist, 'this':this, 'arguments':arguments}, var)
-        var.registers(['a', 'j', 'k', 'list', 'deflist', 'v', 'passed', 'i', 'd'])
+        var.registers(['d', 'k', 'j', 'a', 'deflist', 'v', 'i', 'passed', 'list'])
         pass
         if PyJsStrictEq(var.get('deflist',throw=False).typeof(),Js('object')):
             var.put('list', var.get('deflist').get('symbols'))
@@ -221,7 +221,7 @@ def PyJs_anonymous_0_(this, arguments, var=var):
     @Js
     def PyJsHoisted_transform_(txt, usePETGlyphs, extASCII, this, arguments, var=var):
         var = Scope({'txt':txt, 'usePETGlyphs':usePETGlyphs, 'extASCII':extASCII, 'this':this, 'arguments':arguments}, var)
-        var.registers(['l', 'j', 'wasLF', 'm', 'extASCII', 'out', 'wasCR', 'c', 'gc', 'usePETGlyphs', 'jl', 'i', 'ea', 'txt'])
+        var.registers(['usePETGlyphs', 'ea', 'j', 'jl', 'extASCII', 'i', 'txt', 'out', 'wasLF', 'gc', 'm', 'wasCR', 'c', 'l'])
         var.put('gc', (var.get('getPETCode') if var.get('usePETGlyphs') else var.get('getCode')))
         var.put('out', Js([]))
         var.put('wasCR', Js(False))
@@ -280,7 +280,7 @@ def PyJs_anonymous_0_(this, arguments, var=var):
     @Js
     def PyJsHoisted_rotate_(cm, deg, this, arguments, var=var):
         var = Scope({'cm':cm, 'deg':deg, 'this':this, 'arguments':arguments}, var)
-        var.registers(['b', 'r', 'deg', 'om', 'cm', 'c', 'bit'])
+        var.registers(['bit', 'om', 'cm', 'r', 'deg', 'c', 'b'])
         @Js
         def PyJsHoisted_bit_(r, b, this, arguments, var=var):
             var = Scope({'r':r, 'b':b, 'this':this, 'arguments':arguments}, var)
@@ -349,7 +349,7 @@ def PyJs_anonymous_0_(this, arguments, var=var):
     @Js
     def PyJsHoisted_unescapeHTML_(txt, this, arguments, var=var):
         var = Scope({'txt':txt, 'this':this, 'arguments':arguments}, var)
-        var.registers(['decodeEntity', 'txt'])
+        var.registers(['txt', 'decodeEntity'])
         @Js
         def PyJsHoisted_decodeEntity_(m, e, this, arguments, var=var):
             var = Scope({'m':m, 'e':e, 'this':this, 'arguments':arguments}, var)
