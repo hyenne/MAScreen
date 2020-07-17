@@ -20,7 +20,9 @@ text = ''
 def main():
     text=''
     while True:
-        f= open("./result/stt.txt","r")
+        filepath = sys.argv[0]
+        # f= open("./result/stt.txt","r")
+        f = open(filepath, "r")
         temp = text
         text = f.read()
         if temp == text:
