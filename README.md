@@ -47,8 +47,3 @@ https://jungwoon.github.io/google%20cloud/2018/01/03/Translation-Api/
 export GOOGLE_CLOUD_SDK_PATH=C:\Works\google-cloud-sdk
 export PATH=$PATH:$GOOGLE_CLOUD_SDK_PATH/bin
 export GOOGLE_APPLICATION_CREDENTIALS=C:\Works\google-cloud-sdk
-
-
-# 번역 기능 이용시 최신 단어 반영 안되는 문제
-
-일단 문제 원인파악은 못 했지만 STT.py가 파일을 while문을 돌면서 계속 읽는 것보다 파일을 안쓰고 py => node.js에 썼던 zerorpc를 사용해서 rpc콜을 하게하면 해결될 것으로 예상합니다.

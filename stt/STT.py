@@ -20,15 +20,18 @@ brokenWords = []
 text = ''
 def main():
     text=''
+    text_trans = ''
     while True:
         # filepath = sys.argv[0]
         f_stt= open("./result/stt.txt","r")
         f_trans= open("./result/translated.txt", "r", encoding="utf-8")
         # f = open(filepath, "r")
-        temp = text
+        # temp = text
+        temp = text_trans
         text = f_stt.read()
         text_trans = f_trans.read()
-        if temp == text:
+        # if temp == text:
+        if temp == text_trans:
             time.sleep(1)
             print ('Nothing New')
         else:
