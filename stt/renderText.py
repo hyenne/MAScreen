@@ -8,11 +8,11 @@ var = Scope( JS_BUILTINS )
 set_global_object(var)
 
 # Code follows:
-var.registers(['width', 'data', 'Char8', 'pos', 'renderText'])
+var.registers(['renderText', 'Char8', 'pos', 'width', 'data'])
 @Js
 def PyJsHoisted_renderText_(source, this, arguments, var=var):
     var = Scope({'source':source, 'this':this, 'arguments':arguments}, var)
-    var.registers(['glyph', 'canvas', 'source', 'chars', 'l'])
+    var.registers(['glyph', 'chars', 'source', 'canvas', 'l'])
     var.put('chars', var.get('Char8').callprop('transform', var.get('source')))
     var.put('width', var.get('Math').callprop('max', Js(24.0), ((var.get('chars').get('length')+Js(1.0))*Js(8.0))))
     var.put('canvas', var.get('Uint8Array').create((var.get('width')*Js(8.0))))
@@ -62,7 +62,7 @@ pass
 @Js
 def PyJs_anonymous_0_(this, arguments, var=var):
     var = Scope({'this':this, 'arguments':arguments}, var)
-    var.registers(['entities', 'define', 'synonyms', 'unmap', 'rotate', 'cp437toU', 'map', 'getPETCode', 'isMulti', 'multiLetter', 'getExtASCIICode', 'getGlyph', 'symbols', 'substitutes', 'getSymbol', 'petGlyphs', 'getExtASCIISymbol', 'getCode', 'getPETSymbol', 'transform', 'unescapeHTML', 'getMulti', 'customs'])
+    var.registers(['substitutes', 'isMulti', 'getCode', 'multiLetter', 'symbols', 'unmap', 'synonyms', 'transform', 'unescapeHTML', 'petGlyphs', 'rotate', 'getMulti', 'customs', 'define', 'getPETCode', 'getGlyph', 'cp437toU', 'map', 'getSymbol', 'getPETSymbol', 'entities', 'getExtASCIICode', 'getExtASCIISymbol'])
     @Js
     def PyJsHoisted_getCode_(c, this, arguments, var=var):
         var = Scope({'c':c, 'this':this, 'arguments':arguments}, var)
@@ -154,7 +154,7 @@ def PyJs_anonymous_0_(this, arguments, var=var):
     @Js
     def PyJsHoisted_define_(deflist, this, arguments, var=var):
         var = Scope({'deflist':deflist, 'this':this, 'arguments':arguments}, var)
-        var.registers(['d', 'k', 'j', 'a', 'deflist', 'v', 'i', 'passed', 'list'])
+        var.registers(['d', 'a', 'passed', 'v', 'list', 'i', 'deflist', 'j', 'k'])
         pass
         if PyJsStrictEq(var.get('deflist',throw=False).typeof(),Js('object')):
             var.put('list', var.get('deflist').get('symbols'))
@@ -221,7 +221,7 @@ def PyJs_anonymous_0_(this, arguments, var=var):
     @Js
     def PyJsHoisted_transform_(txt, usePETGlyphs, extASCII, this, arguments, var=var):
         var = Scope({'txt':txt, 'usePETGlyphs':usePETGlyphs, 'extASCII':extASCII, 'this':this, 'arguments':arguments}, var)
-        var.registers(['usePETGlyphs', 'ea', 'j', 'jl', 'extASCII', 'i', 'txt', 'out', 'wasLF', 'gc', 'm', 'wasCR', 'c', 'l'])
+        var.registers(['c', 'jl', 'extASCII', 'wasCR', 'txt', 'out', 'ea', 'wasLF', 'i', 'gc', 'usePETGlyphs', 'l', 'j', 'm'])
         var.put('gc', (var.get('getPETCode') if var.get('usePETGlyphs') else var.get('getCode')))
         var.put('out', Js([]))
         var.put('wasCR', Js(False))
@@ -280,11 +280,11 @@ def PyJs_anonymous_0_(this, arguments, var=var):
     @Js
     def PyJsHoisted_rotate_(cm, deg, this, arguments, var=var):
         var = Scope({'cm':cm, 'deg':deg, 'this':this, 'arguments':arguments}, var)
-        var.registers(['bit', 'om', 'cm', 'r', 'deg', 'c', 'b'])
+        var.registers(['r', 'c', 'cm', 'deg', 'om', 'bit', 'b'])
         @Js
         def PyJsHoisted_bit_(r, b, this, arguments, var=var):
             var = Scope({'r':r, 'b':b, 'this':this, 'arguments':arguments}, var)
-            var.registers(['b', 'r'])
+            var.registers(['r', 'b'])
             return (Js(0.0) if PyJsStrictNeq(var.get('cm').get(var.get('r')).typeof(),Js('number')) else (Js(1.0)&(var.get('cm').get(var.get('r'))>>var.get('b'))))
         PyJsHoisted_bit_.func_name = 'bit'
         var.put('bit', PyJsHoisted_bit_)
@@ -353,7 +353,7 @@ def PyJs_anonymous_0_(this, arguments, var=var):
         @Js
         def PyJsHoisted_decodeEntity_(m, e, this, arguments, var=var):
             var = Scope({'m':m, 'e':e, 'this':this, 'arguments':arguments}, var)
-            var.registers(['m', 'e'])
+            var.registers(['e', 'm'])
             if (var.get('e').callprop('match', JsRegExp('/^[a-z]+$/i')) and var.get('entities').get(var.get('e'))):
                 return var.get('String').callprop('fromCharCode', var.get('entities').get(var.get('e')))
             if var.get('e').callprop('match', JsRegExp('/^#x[0-9a-f]+$/i')):

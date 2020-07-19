@@ -34,8 +34,8 @@ def main():
             time.sleep(1)
             print ('Nothing New')
         else:
-            transcript = translate_text(text, "ko")
-            f_trans= open("./stt/result/translated.txt","w", -1, "utf-8")
+            transcript = translate_text(text, "fr")
+            f_trans= open("./stt/result/translated.txt","w", encoding="utf-8")
             # f_trans= open("./stt/result/translated.txt","w")
             f_trans.write(transcript)
             f_trans.close()

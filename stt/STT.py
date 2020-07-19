@@ -23,7 +23,7 @@ def main():
     while True:
         # filepath = sys.argv[0]
         f_stt= open("./result/stt.txt","r")
-        f_trans= open("./result/translated.txt","r", -1, "utf-8")
+        f_trans= open("./result/translated.txt", "r", encoding="utf-8")
         # f = open(filepath, "r")
         temp = text
         text = f_stt.read()
@@ -33,6 +33,7 @@ def main():
             print ('Nothing New')
         else:
             queue(text_trans)
+            # queue(text)
             for i in range(len(brokenWords)):
                 data = renderText.renderText(brokenWords[i])
                 ledTable = frame(data)
