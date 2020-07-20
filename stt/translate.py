@@ -61,9 +61,16 @@ def main():
 def queue(word):
     brokenWords.append(word[0:3])
     if len(word) > 3:
-        while(len(word)>3):
-            word = word[1:]
-            brokenWords.append(word[0:3])
+        # while(len(word)>3):
+        while(len(word)>0):
+            if len(word) == 3:
+                brokenWords.append(word[0:2])
+                brokenWords.append(word[0:1])
+                brokenWords.append('')
+                break
+            else:
+                word = word[1:]
+                brokenWords.append(word[0:3])
 
 def frame(data):
     payload = bytearray(57)
