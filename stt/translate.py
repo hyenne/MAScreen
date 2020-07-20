@@ -64,8 +64,9 @@ def queue(word):
         # while(len(word)>3):
         while(len(word)>0):
             if len(word) == 3:
-                brokenWords.append(word[0:2])
-                brokenWords.append(word[0:1])
+                brokenWords.append(word[1:3])
+                brokenWords.append(word[2:3])
+                brokenWords.append(word[3:3])
                 brokenWords.append('')
                 break
             else:

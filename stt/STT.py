@@ -10,8 +10,8 @@ import time
 import os
 import sys
 
-from google.cloud import texttospeech
-from playsound import playsound
+# from google.cloud import texttospeech
+# from playsound import playsound
 
 client = zerorpc.Client()
 client.connect("tcp://127.0.0.1:4242")
@@ -45,7 +45,7 @@ def main():
             # print ('Nothing New')
         else:
             #CHANGE 3RD
-            tts(text, "en-US")
+            # tts(text, "en-US")
             queue(text)
             # queue(text_trans)
             for i in range(len(brokenWords)):
@@ -63,8 +63,9 @@ def queue(word):
     if len(word)>3:
         while(len(word)>0):
             if len(word) == 3:
-                brokenWords.append(word[0:2])
-                brokenWords.append(word[0:1])
+                brokenWords.append(word[1:3])
+                brokenWords.append(word[2:3])
+                brokenWords.append(word[3:3])
                 brokenWords.append('')
                 break
             else:
