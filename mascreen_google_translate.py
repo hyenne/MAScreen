@@ -32,9 +32,10 @@ def main():
         f_stt.close()
         if temp == text:
             time.sleep(0.15)
-            print ('Nothing New')
+            # print ('Nothing New')
         else:
             transcript = translate_text(text, "it")
+            print("translated: " + transcript)
             f_trans= open("./stt/result/translated.txt","w", encoding="utf-8")
             # f_trans= open("./stt/result/translated.txt","w")
             f_trans.write(transcript)

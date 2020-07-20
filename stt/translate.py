@@ -10,6 +10,9 @@ import time
 import os
 import sys
 
+from google.cloud import texttospeech
+from playsound import playsound
+
 client = zerorpc.Client()
 client.connect("tcp://127.0.0.1:4242")
 
@@ -21,6 +24,9 @@ text = ''
 def main():
     text=''
     text_trans = ''
+    f_trans= open("./result/translated.txt", "w", encoding="utf-8")
+    f_trans.write(text)
+    f_trans.close()
     while True:
         # filepath = sys.argv[0]
         f_stt= open("./result/stt.txt","r")
@@ -36,10 +42,11 @@ def main():
         # if temp == text:
         if temp == text_trans:
             time.sleep(0.15)
-            print ('Nothing New')
+            # print ('Nothing New')
         else:
             #CHANGE 3RD
             # queue(text)            
+            tts(text_trans, "it-IT")
             queue(text_trans)
             for i in range(len(brokenWords)):
                 data = renderText.renderText(brokenWords[i])
@@ -94,6 +101,38 @@ def encodeMessage(type, payload):
 def sendData(leds):
     global client
     client.draw(leds)
+
+def tts(_text, _language) :
+    # Instantiates a client
+    client = texttospeech.TextToSpeechClient()
+
+    # Set the text input to be synthesized
+    synthesis_input = texttospeech.SynthesisInput(text=_text)
+
+    # Build the voice request, select the language code ("en-US") and the ssml
+    # voice gender ("neutral")
+    voice = texttospeech.VoiceSelectionParams(
+        language_code=_language, ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+    )
+
+    # Select the type of audio file you want returned
+    audio_config = texttospeech.AudioConfig(
+        audio_encoding=texttospeech.AudioEncoding.MP3
+    )
+
+    # Perform the text-to-speech request on the text input with the selected
+    # voice parameters and audio file type
+    response = client.synthesize_speech(
+        input=synthesis_input, voice=voice, audio_config=audio_config
+    )
+
+    # The response's audio_content is binary.
+    with open("./output.mp3", "wb") as out:
+        # Write the response to the output file.
+        out.write(response.audio_content)
+        print('Audio content written to file "output.mp3"')
+
+    playsound('output.mp3')
 
 # def display():
 #     renderText.pos = renderText.pos+1
