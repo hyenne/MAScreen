@@ -28,19 +28,19 @@ def main():
         # f = open(filepath, "r")
 
         # CHANGE 1ST
-        temp = text
-        # temp = text_trans
+        # temp = text
+        temp = text_trans
         text = f_stt.read()
         text_trans = f_trans.read()
         # CHANGE 2ND
-        if temp == text:
-        # if temp == text_trans:
+        # if temp == text:
+        if temp == text_trans:
             time.sleep(0.15)
             print ('Nothing New')
         else:
             #CHANGE 3RD
-            queue(text)            
-            # queue(text_trans)
+            # queue(text)            
+            queue(text_trans)
             for i in range(len(brokenWords)):
                 data = renderText.renderText(brokenWords[i])
                 ledTable = frame(data)

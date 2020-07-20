@@ -28,6 +28,8 @@
 
 3) python mascreen_google_speechToText.py
 
+
+4) python mascreen_google_translate.py
 (입모양 모델 1,2) --> 
 C:\Works\Mascreen\model
 lips.py
@@ -47,3 +49,6 @@ https://jungwoon.github.io/google%20cloud/2018/01/03/Translation-Api/
 export GOOGLE_CLOUD_SDK_PATH=C:\Works\google-cloud-sdk
 export PATH=$PATH:$GOOGLE_CLOUD_SDK_PATH/bin
 export GOOGLE_APPLICATION_CREDENTIALS=C:\Works\google-cloud-sdk
+
+translate language:
+https://cloud.google.com/translate/docs/languages?hl=ko

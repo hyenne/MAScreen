@@ -31,10 +31,10 @@ def main():
         text = f_stt.read()
         f_stt.close()
         if temp == text:
-            time.sleep(1)
+            time.sleep(0.15)
             print ('Nothing New')
         else:
-            transcript = translate_text(text, "fr")
+            transcript = translate_text(text, "it")
             f_trans= open("./stt/result/translated.txt","w", encoding="utf-8")
             # f_trans= open("./stt/result/translated.txt","w")
             f_trans.write(transcript)
