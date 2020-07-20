@@ -46,7 +46,7 @@ def main():
         else:
             #CHANGE 3RD
             # queue(text)            
-            tts(text_trans, "it-IT")
+            # tts(text_trans, "en-US")
             queue(text_trans)
             for i in range(len(brokenWords)):
                 data = renderText.renderText(brokenWords[i])

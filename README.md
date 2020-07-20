@@ -50,5 +50,8 @@ export GOOGLE_CLOUD_SDK_PATH=C:\Works\google-cloud-sdk
 export PATH=$PATH:$GOOGLE_CLOUD_SDK_PATH/bin
 export GOOGLE_APPLICATION_CREDENTIALS=C:\Works\google-cloud-sdk
 
-translate language:
+stt or tts language code:
+https://support.google.com/googleplay/android-developer/table/4419860?hl=ko
+
+translate language code:
 https://cloud.google.com/translate/docs/languages?hl=ko

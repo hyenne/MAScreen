@@ -227,7 +227,7 @@ def listen_print_loop(responses, stream):
                 break
             else:
                 # file write to save transcript result
-                f= open("./stt/result/stt.txt","w")
+                f= open("./stt/result/stt.txt","w", encoding="utf-8")
                 f.write(transcript)
                 f.close()
 
@@ -246,7 +246,7 @@ def main():
     config = speech.types.RecognitionConfig(
         encoding=speech.enums.RecognitionConfig.AudioEncoding.LINEAR16,
         sample_rate_hertz=SAMPLE_RATE,
-        language_code='en-US',
+        language_code='fr',
         max_alternatives=1)
     streaming_config = speech.types.StreamingRecognitionConfig(
         config=config,
