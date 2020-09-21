@@ -26,7 +26,7 @@ def translate_text(_input_text, _target_language):
 def main():
     text=''
     while True:
-        f_stt= open("./stt/result/stt.txt","r")
+        f_stt= open("./stt/result/stt.txt","r", encoding="utf-8")
         temp = text
         text = f_stt.read()
         f_stt.close()

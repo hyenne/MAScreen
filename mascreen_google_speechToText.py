@@ -246,7 +246,7 @@ def main():
     config = speech.types.RecognitionConfig(
         encoding=speech.enums.RecognitionConfig.AudioEncoding.LINEAR16,
         sample_rate_hertz=SAMPLE_RATE,
-        language_code='fr',
+        language_code='en-US',
         max_alternatives=1)
     streaming_config = speech.types.StreamingRecognitionConfig(
         config=config,

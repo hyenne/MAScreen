@@ -38,7 +38,7 @@ def getY(val):
     result = val/1023.0*100
     return int(result)
 
-def sendData(num):
+def sendData(num): 
     global last, interval, ledTable, client, lastData
     now = int(round(time.time() * 1000))
     # logging.info("PREDICT: {}".format(num))

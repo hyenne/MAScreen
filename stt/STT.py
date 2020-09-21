@@ -41,7 +41,7 @@ def main():
         # CHANGE 2ND
         if temp == text:
         # if temp == text_trans:
-            time.sleep(0.15)
+            time.sleep(0.1)
             # print ('Nothing New')
         else:
             #CHANGE 3RD
@@ -53,7 +53,7 @@ def main():
                 ledTable = frame(data)
                 print (binascii.hexlify(ledTable))
                 sendData(ledTable)
-                time.sleep(0.15)
+                time.sleep(0.1)
             brokenWords.clear()
         f_stt.close()
         # f_trans.close()

@@ -24,13 +24,13 @@ text = ''
 def main():
     text=''
     text_trans = ''
-    f_trans= open("./result/translated.txt", "w", encoding="utf-8")
+    f_trans= open("./result/translated.txt", "w", encoding='UTF8')
     f_trans.write(text)
     f_trans.close()
     while True:
         # filepath = sys.argv[0]
-        f_stt= open("./result/stt.txt","r")
-        f_trans= open("./result/translated.txt", "r", encoding="utf-8")
+        f_stt= open("./result/stt.txt","r", encoding='UTF8')
+        f_trans= open("./result/translated.txt", "r", encoding='UTF8')
         # f = open(filepath, "r")
 
         # CHANGE 1ST
