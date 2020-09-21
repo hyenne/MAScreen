@@ -19,6 +19,8 @@ int val6 = 0;
 int val7 = 0;
 int val8 = 0;
 
+int cnt = 0;
+
 void setup() {
 
   // initialize serial:
@@ -49,8 +51,8 @@ void loop() {
   
   
 
-  //send over serial
-
+//  //send over serial
+//
   Serial.write( 0xff); //control byte
   Serial.write( (val0 >> 8) & 0xff); //first byte
   Serial.write( val0 & 0xff);  //second byte
@@ -86,8 +88,12 @@ void loop() {
   Serial.write( 0xed); //control byte
   Serial.write( (val8 >> 8) & 0xff); //first byte
   Serial.write( val8 & 0xff);  //second byte
-  Serial.println(millis());
-  //delay(100);                 
+  cnt++;
+  if (cnt == 1000) {
+    Serial.println('------------'+millis());
+    cnt=0;
+  }
+////  delay(100);                 
 
 }
 
